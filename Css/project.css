@@ -9,13 +9,22 @@
     padding-left: 20px;
 }
 
-.nav{
+.img {
+    width: 5%;
+}
+
+.nav {
     display: flex;
     align-items: center;
     font-family: 'Courgette', cursive;
-    font-size: 19px;
+    font-size: 20px;
     background-color: black;
     width: 100%;
+    justify-content: space-between;
+}
+
+#mynavbar {
+    display: flex;
 }
 
 .dropdown-menu .form-control {
@@ -35,6 +44,14 @@
     margin: 10px 0px;
 }
 
+.signin {
+    width: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 70px;
+}
+
 .nav .nav-item {
     padding-right: 35px;
 }
@@ -48,10 +65,6 @@
 .btns .on {
     color: white;
     width: 45%;
-}
-
-.sign {
-    width: 20px;
 }
 
 .btns .off {
@@ -68,18 +81,66 @@
     cursor: pointer;
 }
 
-.home {
-    margin-left: 180px;
-}
-
-.fa-bell {
-    margin-left: 170px;
-    padding-right: 40px;
-}
 
 .active {
     color: rgb(43, 132, 192);
 }
+
+.drop {
+    display: flex;
+    width: 80%;
+}
+
+.contain {
+    display: flex;
+}
+
+.humbg {
+    color: white;
+    font-size: 35px;
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    display: none;
+}
+
+@media (max-width: 1245px) {
+    .humbg {
+        display: inline-block;
+        padding-right: 80px;
+    }
+
+    .home {
+        margin-top: 1px;
+    }
+
+    .drop {
+        flex-direction: column;
+        width: 100%;
+        font-size: 2vw;
+        padding: 0px 0px 15px 15px;
+        height: 0px;
+        overflow: hidden;
+    }
+
+    .signin {
+        margin-left: 20px;
+    }
+
+    .view_humbg {
+        height: fit-content;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 870px) {
+    .drop {
+        font-size: 20px;
+    }
+}
+
+/* search bar */
 
 .cont {
     height: 720px;
@@ -114,6 +175,27 @@
     color: white;
     border-color: rgb(194, 75, 105) rgb(191, 79, 206) rgb(156, 61, 101) rgb(168, 92, 212);
 }
-.link:hover{
+
+.link:hover {
     background-color: rgb(70, 114, 207);
+}
+
+@media (max-width: 820px) {
+    .layer .search {
+        width: 350px;
+        margin-top: 10px;
+    }
+}
+    @media (max-width: 570px) {
+        .layer .search {
+            width: 90%;
+            margin-top: 10px;
+        }
+        .layer h1 {
+            font-size: 30px;
+    }
+    .layer {
+        align-items: center;
+        padding-left: 20px;
+    }
 }

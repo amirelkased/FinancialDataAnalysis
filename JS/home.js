@@ -23,3 +23,6 @@ document.getElementsByClassName("off")[0].onclick = function () {
 document.getElementsByClassName("fa-search")[0].onclick = function () {
     document.getElementsByClassName("search")[0].value = "";
 }
+document.getElementsByClassName("humbg")[0].onclick = function () {
+    document.getElementsByClassName("drop")[0].classList.toggle("view_humbg");
+}
