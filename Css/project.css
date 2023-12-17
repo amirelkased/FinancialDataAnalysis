@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    background-color: rgb(63, 125, 207);
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(189, 43, 226);
+}
+
 .logo {
     height: 60px;
     padding-left: 20px;
@@ -49,7 +58,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 70px;
+    margin-left: 90px;
 }
 
 .nav .nav-item {
@@ -97,7 +106,7 @@
 
 .humbg {
     color: white;
-    font-size: 35px;
+    font-size: 30px;
     background-color: transparent;
     width: 80px;
     height: 30px;
@@ -105,7 +114,7 @@
     display: none;
 }
 
-@media (max-width: 1245px) {
+@media (max-width: 1313px) {
     .humbg {
         display: inline-block;
         padding-right: 80px;
@@ -165,6 +174,13 @@
     font-family: 'Courgette', cursive;
 }
 
+.search-input {
+    background-color: white;
+    border-radius: 20px;
+    width: 500px;
+    position: relative;
+}
+
 .layer .search {
     height: 50px;
     width: 500px;
@@ -172,28 +188,74 @@
     font-size: 20px;
     padding-left: 40px;
     background-color: transparent;
-    color: white;
-    border-color: rgb(194, 75, 105) rgb(191, 79, 206) rgb(156, 61, 101) rgb(168, 92, 212);
+    color: black;
+    border-color: rgb(191, 79, 206) rgb(75, 131, 194) rgb(156, 61, 101) rgb(168, 92, 212);
 }
 
-.link:hover {
+.layer .fa-search {
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    color: rgb(107, 43, 226);
+    text-align: center;
+}
+
+.layer .boxSearch {
+    overflow-y: auto;
+    max-height: 290px;
+    opacity: 0;
+
+}
+
+.search-input.active .boxSearch {
+    padding: 10px 8px;
+    opacity: 1;
+}
+
+.boxSearch li {
+    list-style: none;
+    padding: 5px 12px;
+    width: 100%;
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.search-input.active .boxSearch li {
+    display: inline-block;
+}
+
+.link:hover,
+.boxSearch li:hover {
     background-color: rgb(70, 114, 207);
 }
 
 @media (max-width: 820px) {
     .layer .search {
         width: 350px;
-        margin-top: 10px;
+    }
+    .layer .search-input {
+        width: 350px;
     }
 }
-    @media (max-width: 570px) {
-        .layer .search {
-            width: 90%;
-            margin-top: 10px;
-        }
-        .layer h1 {
-            font-size: 30px;
+
+@media (max-width: 570px) {
+    .layer .search-input {
+        width: 80%;
     }
+    .layer .search,.layer .boxSearch {
+        width: 100%;
+    }
+
+    .layer h1 {
+        font-size: 30px;
+    }
+
     .layer {
         align-items: center;
         padding-left: 20px;

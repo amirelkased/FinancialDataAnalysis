@@ -21,7 +21,7 @@ document.getElementsByClassName("off")[0].onclick = function () {
     document.getElementById("predictiony").value = "";
 }
 document.getElementsByClassName("fa-search")[0].onclick = function () {
-    document.getElementsByClassName("search")[0].value = "";
+    wrapper.classList.remove("active");
 }
 document.getElementsByClassName("humbg")[0].onclick = function () {
     document.getElementsByClassName("drop")[0].classList.toggle("view_humbg");
