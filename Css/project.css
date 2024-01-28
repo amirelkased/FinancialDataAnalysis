@@ -13,6 +13,7 @@
     background-color: rgb(189, 43, 226);
 }
 
+/*********************************************** Home ***********************************************/
 .logo {
     height: 60px;
     padding-left: 20px;
@@ -58,11 +59,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 90px;
+    margin-left: 150px;
 }
 
 .nav .nav-item {
-    padding-right: 35px;
+    padding-right: 55px;
 }
 
 .btns {
@@ -167,7 +168,10 @@
     flex-direction: column;
     padding-left: 100px;
 }
-
+.signnav a {
+color: black;
+text-decoration: none;
+}
 .layer h1 {
     color: white;
     width: 300px;
@@ -239,6 +243,7 @@
     .layer .search {
         width: 350px;
     }
+
     .layer .search-input {
         width: 350px;
     }
@@ -248,7 +253,9 @@
     .layer .search-input {
         width: 80%;
     }
-    .layer .search,.layer .boxSearch {
+
+    .layer .search,
+    .layer .boxSearch {
         width: 100%;
     }
 
@@ -260,4 +267,80 @@
         align-items: center;
         padding-left: 20px;
     }
+}
+
+/*********************************************** Sign Up ***********************************************/
+.Sign_Up {
+    display: flex;
+    font-family: 'Courgette', cursive;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.Sign_Up .img_sign {
+    width: 100%;
+    height: 99.55vh;
+}
+
+.Sign_Up form {
+    width: 100%;
+    padding: 30px;
+    background-color: rgb(92, 34, 82);
+    height: 99.55vh;
+    padding-top: 100px;
+
+}
+
+.Sign_Up form input,
+.Sign_Up form label {
+    width: 100%;
+}
+
+.Sign_Up form input {
+    border: none;
+    padding: 18px;
+    border-bottom: 1px solid rgb(49, 68, 179);
+    background-color: transparent;
+    margin: 10px;
+    margin-bottom: 25px;
+}
+
+.Sign_Up form label {
+    color: white;
+    padding-left: 20px;
+}
+
+#error {
+    color: rgb(161, 156, 156);
+    padding-left: 20px;
+    padding-bottom: 20px;
+    display: none;
+}
+
+.Sign_Up form .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Sign_Up form button {
+    width: 120px;
+    height: 50px;
+    background-color: rgb(49, 68, 179);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 17px;
+}
+.sign_img{
+    position: relative;
+}
+.sign_img h1{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    color:  rgba(255, 255, 255, 0.726);
+    width:300px;
 }

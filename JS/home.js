@@ -1,28 +1,43 @@
-document.getElementById("show").onclick = function () {
-    let prediction = parseInt(document.getElementById("predictionx").value);
-    if (prediction < 1 || prediction > 15 || isNaN(prediction)) {
-        document.getElementById("warning").style.display = "block";
-        document.getElementById("predictionx").value = "";
+let wrapper=document.getElementsByClassName("search-input")[0];
+let input = wrapper.getElementsByClassName("search")[0];
+let suggestBox = wrapper.getElementsByClassName("boxSearch")[0];
+
+input.onkeyup = (e) => {
+    let userData = e.target.value;
+    let emptyArray = [];
+    if (userData) { //search يعنى هل فيه داتا جوا ال
+        emptyArray = suggestions.filter((data) => {
+            //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+        });
+        emptyArray=emptyArray.map((data)=>{
+            return data='<li>'+data+'</li>';
+        });
+        wrapper.classList.add("active");
+        showSuggestions(emptyArray);
+        let allList=suggestBox.querySelectorAll("li");
+        for (let i = 0; i < allList.length; i++) {
+            allList[i].setAttribute("onclick","select(this)");
+        }
+    }else{
+        wrapper.classList.remove("active");
     }
-    else {
-        document.getElementById("predictionx").value = "";
-        document.getElementById("warning").style.display = "none";
-    }
 }
-document.getElementById("predictiony").onkeypress = function (ev) {
-    if (ev.keyCode == 13) {
-        document.getElementById("predictiony").value = "";
-    }
-}
-document.getElementsByClassName("on")[1].onclick = function () {
-    document.getElementById("predictiony").value = "";
-}
-document.getElementsByClassName("off")[0].onclick = function () {
-    document.getElementById("predictiony").value = "";
-}
-document.getElementsByClassName("fa-search")[0].onclick = function () {
+
+function select(elment){
+    let selectUserData=elment.textContent;
+    input.value=selectUserData;
     wrapper.classList.remove("active");
 }
-document.getElementsByClassName("humbg")[0].onclick = function () {
-    document.getElementsByClassName("drop")[0].classList.toggle("view_humbg");
+
+function showSuggestions(list){
+let listData;
+if(!list.length){
+userValue=input.value;
+listData='<li>' + userValue + '</li>';
+}
+else{
+    listData= list.join('');
+}
+suggestBox.innerHTML=listData;
 }

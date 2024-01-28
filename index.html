@@ -9,25 +9,28 @@
   <title>Financial Data Analytics</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="Css/project.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <div class="alert alert-danger" role="alert" id="warning" style="margin-bottom: 0px;display:none;">
     <strong>Oh snap!</strong> you must Enter Number and it must be between 1 and 15.
   </div>
-    <ul class="nav">
-      <div class="img">
-        <li class="nav-item">
-          <img class="logo" src="images/logoy.jpg">
-        </li>
-      </div>
-      <button class="humbg">
-        <i class="fa fa-bars" aria-hidden="true" style="font-size: 35px;"></i>
-      </button>
-      <div class="drop">
+  <ul class="nav">
+    <div class="img">
+      <li class="nav-item">
+        <img class="logo" src="images/logoy.jpg">
+      </li>
+    </div>
+    <button class="humbg">
+      <i class="fa fa-bars" aria-hidden="true" style="font-size: 35px;"></i>
+    </button>
+    <div class="drop">
       <li class="nav-item home">
         <a class="nav-link active home" href="#!">Home</a>
       </li>
@@ -35,15 +38,18 @@
         <a class="nav-link text-light" href="#!">News</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button">Stock Movement</a>
+        <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button">Stock
+          Movement</a>
         <div class="dropdown-menu">
           <label for="predictionx" class="form-label">Enter period 1:15</label>
           <input class="dropdown-item form-control " id="predictionx" type="text" placeholder="1:15">
           <div class="btns">
-            <button type="button" class="dropdown-item on" style="margin: 10px auto 0px; width:100px; text-align: center;" id="show">Show</button>
+            <button type="button" class="dropdown-item on"
+              style="margin: 10px auto 0px; width:100px; text-align: center;" id="show">Show</button>
           </div>
         </div>
       </li>
+      <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button">Alert</a>
         <div class="dropdown-menu">
@@ -55,8 +61,9 @@
           </div>
         </div>
       </li>
+      -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" >Market Indicators</a>
+        <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#">Market Indicators</a>
         <ul class="dropdown-menu">
           <li class="dropdown-item link" style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);">Up</li>
           <li class="dropdown-item link" style="border-bottom: 1px solid rgba(51, 124, 207, 0.329);">Down</li>
@@ -64,30 +71,32 @@
         </ul>
       </li>
 
-    <div class="signin">
-      <li class="nav-item dropdown" style="padding-right: 50px;"><i class="fa fa-bell" aria-hidden="true" data-bs-toggle="dropdown"></i>
-        <ul class="dropdown-menu">
-          <li class="dropdown-item"></li>
-          <li class="dropdown-item"></li>
-          <li class="dropdown-item"></li>
-        </ul>
-      </li>
-      <li class="nav-item ">
-        <i class="fa fa-user " aria-hidden="true" data-bs-toggle="dropdown"role="button"></i>
-        <ul class="dropdown-menu">
-          <li class="dropdown-item link" style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);">Sign Up</li>
-          <li class="dropdown-item link">Log in</li>
-        </ul>
-      </li>
+      <div class="signin">
+        <li class="nav-item dropdown" style="padding-right: 50px;"><i class="fa fa-bell" aria-hidden="true"
+            data-bs-toggle="dropdown"></i>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"></li>
+            <li class="dropdown-item"></li>
+            <li class="dropdown-item"></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+          <i class="fa fa-user " aria-hidden="true" data-bs-toggle="dropdown" role="button"></i>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item link , signnav" style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);">
+              <a href="signUp.html">Sign Up</a></li>
+            <li class="dropdown-item link">Log in</li>
+          </ul>
+        </li>
+      </div>
     </div>
-  </div>
-    </ul>
+  </ul>
   </nav>
   <div class="cont">
     <div class="layer">
       <h1>Good Analysis Means Guaranteed Profit</h1>
       <div class="search-input">
-        <input type="text" class="search" placeholder="Search" id="txtSearch" >
+        <input type="text" class="search" placeholder="Search" id="txtSearch">
         <div class="boxSearch">
         </div>
         <span><i class="fa fa-search" aria-hidden="true" id="frmSearch"></i></span>
