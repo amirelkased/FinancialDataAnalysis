@@ -6,7 +6,7 @@ let count = 0;
 form.onsubmit = function x(e) {
     let pass = document.getElementsByClassName("password")[0].value;
     for (let x = 0; x < inputs.length; x++) {
-        if ((inputs.length-1).value !== '' && inputs[x].value !== ' ' && pass.length >= 10 && pass.match(/[0-9]/i) && /[_$]/g.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/) ) {
+        if (inputs[x].value !== '' && inputs[x].value !== ' ' && pass.length >= 10 && pass.match(/[0-9]/i) && /[_$]/g.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/) ) {
             error[x].style.display = "none";
         }
         else {
