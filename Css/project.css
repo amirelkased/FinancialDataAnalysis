@@ -59,11 +59,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 150px;
+    margin-left: 250px;
 }
 
 .nav .nav-item {
-    padding-right: 55px;
+    padding-right: 60px;
 }
 
 .btns {
@@ -168,10 +168,12 @@
     flex-direction: column;
     padding-left: 100px;
 }
+
 .signnav a {
-color: black;
-text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
+
 .layer h1 {
     color: white;
     width: 300px;
@@ -290,8 +292,7 @@ text-decoration: none;
 
 }
 
-.Sign_Up form input,
-.Sign_Up form label {
+.Sign_Up form input {
     width: 100%;
 }
 
@@ -301,15 +302,16 @@ text-decoration: none;
     border-bottom: 1px solid rgb(49, 68, 179);
     background-color: transparent;
     margin: 10px;
-    margin-bottom: 25px;
 }
 
-.Sign_Up form label {
+.Sign_Up form input::placeholder {
     color: white;
-    padding-left: 20px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 15px;
 }
 
-#error {
+.error {
     color: rgb(161, 156, 156);
     padding-left: 20px;
     padding-bottom: 20px;
@@ -322,7 +324,7 @@ text-decoration: none;
     align-items: center;
 }
 
-.Sign_Up form button {
+.Sign_Up form #button ,.Sign_Up form #buttons {
     width: 120px;
     height: 50px;
     background-color: rgb(49, 68, 179);
@@ -332,15 +334,102 @@ text-decoration: none;
     cursor: pointer;
     font-family: 'Playfair Display SC', serif;
     font-size: 17px;
+    margin-top: 10px;
 }
-.sign_img{
+.Sign_Up form #button a ,.Sign_Up form #buttons a{
+    color: white;
+    text-decoration: none;
+}
+.sign_img {
     position: relative;
 }
-.sign_img h1{
+
+.sign_img h1 {
     position: absolute;
     top: 50%;
     left: 30%;
-    transform: translate(-50%,-50%);
-    color:  rgba(255, 255, 255, 0.726);
-    width:300px;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.726);
+    width: 300px;
+}
+
+@media (max-width: 1200px) {
+    *{
+        overflow: auto;
+    }
+    .Sign_Up .img_sign {
+        width: 100%;
+    }
+
+    .Sign_Up form {
+        width: 170%;
+    }
+
+    .sign_img h1 {
+        left: 50%;
+    }
+}
+
+/*********************************************** SignIn ***********************************************/
+
+.Sign_Up .fSign {
+    padding-top: 15%;
+}
+
+.Sign_Up .fSign #buttons {
+    margin-top: 20px;
+}
+@media (max-width: 900px) {
+    *{
+        overflow: auto;
+    }
+    .Sign_Up .img_sign {
+        display: none;
+    }
+
+    .Sign_Up form {
+        width: 100%;
+    }
+    .sign_img h1 {
+        display: none;
+    }
+    .Sign_Up .fSign {
+        padding-top: 40%;
+    }
+}
+@media (min-height: 1000px) {
+    *{
+        overflow: auto;
+    }
+    .Sign_Up form , .Sign_Up form input::placeholder , .Sign_Up form #button{
+        font-size: 25px;
+    }
+    .Sign_Up form #button , .Sign_Up form #buttons{
+        width: 140px;
+        height: 60px;
+    }
+    .Sign_Up form {
+        padding-top: 150px;
+    }
+    .Sign_Up .img_sign {
+        display: none;
+    }
+
+    .Sign_Up form {
+        width: 100%;
+    }
+    .sign_img h1 {
+        display: none;
+    }
+    .Sign_Up .fSign {
+        padding-top: 40%;
+    }
+}
+@media (max-width: 350px) {
+    .Sign_Up form , .Sign_Up form input::placeholder , .Sign_Up form #button{
+        font-size: 15px;
+    }
+    .Sign_Up form {
+        padding-top: 100px;
+    }
 }
