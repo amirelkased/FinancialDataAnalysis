@@ -23,7 +23,7 @@ form.onsubmit = function (e) {
             // Validating password
             else if (inputs[x].classList.contains('password')) {
                 let pass = inputValue;
-                if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
+                if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*.+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
                     error[x].style.display = "none";
                 } else {
                     displayError(x, "Enter your User pass");
