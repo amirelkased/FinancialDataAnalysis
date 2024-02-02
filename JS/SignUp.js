@@ -21,7 +21,7 @@ form.onsubmit = function (e) {
                 }
             }
             else if (inputs[x].classList.contains('email')) {
-                let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
+                let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/;
                 if (emailPattern.test(inputValue) && inputValue.length >= 16) {
                     error[x].style.display = "none";
                 } else {
