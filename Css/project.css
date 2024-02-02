@@ -124,7 +124,9 @@
     .home {
         margin-top: 1px;
     }
-
+    .fa-user{
+        padding-top: 15px;
+    }
     .drop {
         flex-direction: column;
         width: 100%;
@@ -276,6 +278,7 @@
     display: flex;
     font-family: 'Diphylleia', serif;
     font-family: 'Lora', serif;
+    overflow: auto;
 }
 
 .Sign_Up .img_sign {
@@ -359,9 +362,6 @@
 }
 
 @media (max-width: 1200px) {
-    * {
-        overflow: auto;
-    }
 
     .Sign_Up .img_sign {
         width: 100%;
@@ -387,10 +387,6 @@
 }
 
 @media (max-width: 900px) {
-    * {
-        overflow: auto;
-    }
-
     .Sign_Up form,
     .Sign_Up form input::placeholder,
     .Sign_Up form #button {
@@ -415,9 +411,6 @@
 }
 
 @media (min-height: 1000px) {
-    * {
-        overflow: auto;
-    }
     .Sign_Up form,
     .Sign_Up form input::placeholder,
     .Sign_Up form #button {

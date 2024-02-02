@@ -16,7 +16,7 @@ form.onsubmit = function (e) {
                     error[x].style.display = "none";
                 } else {
                     e.preventDefault();
-                    displayError(x, 'enter your name');
+                    displayError(x, 'Enter your name');
                     return;
                 }
             }
@@ -25,7 +25,7 @@ form.onsubmit = function (e) {
                 if (emailPattern.test(inputValue) && inputValue.length >= 16) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'email should be username @gamil or yahoo.com');
+                    displayError(x, 'Email should be username @gamil or yahoo.com');
                     e.preventDefault();
                     return;
                 }
@@ -35,7 +35,7 @@ form.onsubmit = function (e) {
                 if (user.length >= 7 && user.match(/[a-zA-Z]/) && user.match(/[0-9_.]/)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'username should contain your name and 0:9 or _ or .');
+                    displayError(x, 'Username should contain your name and 0:9 or _ or .');
                     e.preventDefault();
                     return;
                 }
