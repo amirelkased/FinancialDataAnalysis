@@ -43,7 +43,7 @@ form.onsubmit = function (e) {
             // Validating password
             else if (inputs[x].classList.contains('password')) {
                 let pass = inputValue;
-                if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
+                if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*+=\-._\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
                     error[x].style.display = "none";
                 } else {
                     displayError(x, "Password must contain capital,small letters,numbers and special characters and the length shouldn't be shorter than 10");
