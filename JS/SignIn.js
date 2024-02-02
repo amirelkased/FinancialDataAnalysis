@@ -26,7 +26,7 @@ form.onsubmit = function (e) {
                 if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*.+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, "Enter your User pass");
+                    displayError(x, "Enter your Password");
                     e.preventDefault();
                     return;
                 }
