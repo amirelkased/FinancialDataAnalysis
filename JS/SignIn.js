@@ -10,32 +10,12 @@ form.onsubmit = function (e) {
     for (let x = 0; x < inputs.length; x++) {
         let inputValue = inputs[x].value.trim();
         if (inputValue !== '' && inputValue !== ' ') {
-            if (inputs[x].classList.contains('name')) {
-                let name = inputValue;
-                if (name.length >= 3 && name.match(/[a-zA-Z]/)) {
-                    error[x].style.display = "none";
-                } else {
-                    e.preventDefault();
-                    displayError(x, 'enter your name');
-                    return;
-                }
-            }
-            else if (inputs[x].classList.contains('email')) {
-                let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
-                if (emailPattern.test(inputValue) && inputValue.length >= 16) {
-                    error[x].style.display = "none";
-                } else {
-                    displayError(x, 'email should be username @gamil or yahoo.com');
-                    e.preventDefault();
-                    return;
-                }
-            }
-            else if (inputs[x].classList.contains('user')) {
+            if (inputs[x].classList.contains('user')) {
                 let user = inputValue;
                 if (user.length >= 7 && user.match(/[a-zA-Z]/) && user.match(/[0-9_.]/)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'username should contain your name and 0:9 or _ or .');
+                    displayError(x, 'Enter your User Name');
                     e.preventDefault();
                     return;
                 }
@@ -46,7 +26,7 @@ form.onsubmit = function (e) {
                 if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, "Password must contain capital,small letters,numbers and special characters and the length shouldn't be shorter than 10");
+                    displayError(x, "Enter your User pass");
                     e.preventDefault();
                     return;
                 }
@@ -62,6 +42,7 @@ form.onsubmit = function (e) {
     // If all conditions are met, submit the form
     if (count === inputs.length) {
         document.getElementsByClassName("form")[0].submit();
+        
     }
 };
 
