@@ -7,6 +7,7 @@ form.onsubmit = function (e) {
     // Reset count for every form submission
     count = 0;
 
+
     for (let x = 0; x < inputs.length; x++) {
         let inputValue = inputs[x].value.trim();
         if (inputValue !== '' && inputValue !== ' ') {
@@ -21,11 +22,11 @@ form.onsubmit = function (e) {
                 }
             }
             else if (inputs[x].classList.contains('email')) {
-                let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/;
+                let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
                 if (emailPattern.test(inputValue) && inputValue.length >= 16) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'Email should be username @gamil or yahoo.com');
+                    displayError(x, 'Email should be username @gmail or yahoo.com');
                     e.preventDefault();
                     return;
                 }
@@ -62,6 +63,7 @@ form.onsubmit = function (e) {
     // If all conditions are met, submit the form
     if (count === inputs.length) {
         document.getElementsByClassName("form")[0].submit();
+
     }
 };
 

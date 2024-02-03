@@ -14,7 +14,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courgette&family=Diphylleia&family=Lora:ital,wght@1,400;1,500&family=Playfair+Display+SC:ital@1&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -41,7 +43,8 @@
         <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button">Stock
           Movement</a>
         <div class="dropdown-menu">
-          <label for="predictionx" class="form-label">Enter period 1:15</label>
+          <label for="predictionx" class="form-label" style="font-weight: 600;font-size: 15px;">Enter period
+            1:15</label>
           <input class="dropdown-item form-control " id="predictionx" type="text" placeholder="1:15">
           <div class="btns">
             <button type="button" class="dropdown-item on"
@@ -65,9 +68,11 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#">Market Indicators</a>
         <ul class="dropdown-menu">
-          <li class="dropdown-item link" style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);">Up</li>
-          <li class="dropdown-item link" style="border-bottom: 1px solid rgba(51, 124, 207, 0.329);">Down</li>
-          <li class="dropdown-item link">More Activites</li>
+          <li class="dropdown-item link"
+            style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);font-weight: 600;font-size: 16px;">Up</li>
+          <li class="dropdown-item link"
+            style="border-bottom: 1px solid rgba(51, 124, 207, 0.329);font-weight: 600;font-size: 16px;">Down</li>
+          <li class="dropdown-item link" style="font-weight: 600;font-size: 16px;">More Activites</li>
         </ul>
       </li>
 
@@ -82,12 +87,15 @@
         </li>-->
         <li class="nav-item">
           <i class="fa fa-user " aria-hidden="true" data-bs-toggle="dropdown" role="button"></i>
-          <ul class="dropdown-menu">
-            <li class="dropdown-item link signnav" style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);">
+          <ul class="dropdown-menu" id="Xsign">
+            <li class="dropdown-item link signnav x" id="SinUp">
               <a href="signUp.html">Sign Up</a>
             </li>
-            <li class="dropdown-item link signnav">
+            <li class="dropdown-item link signnav" id="SinIn">
               <a href="signIn.html">Sign In</a>
+            </li>
+            <li class="dropdown-item link signnav disableSignOut" id="SignOut" data-index="1">
+              <a href="index.html" id="xSignOut">Sign Out</a>
             </li>
           </ul>
         </li>
@@ -110,6 +118,16 @@
   <script src="JS/home.js"></script>
   <script src="JS/suggestions.Js"></script>
   <script src="JS/main.JS"></script>
+  <script src="JS/SignIn.js"></script>
+  <script>
+    let SignOut = document.getElementById("xSignOut");
+    SignOut.onclick = function (e) {
+      document.getElementById("SinUp").classList.remove("disableSignUp");
+      document.getElementById("SinUp").classList.add("x");
+      document.getElementById("SinIn").classList.remove("disableSignIn");
+      document.getElementById("SignOut").classList.add("disableSignOut");
+      e.preventDefault();
+    }</script>
 </body>
 
 </html>

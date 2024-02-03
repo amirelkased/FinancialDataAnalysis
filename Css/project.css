@@ -26,7 +26,8 @@
 .nav {
     display: flex;
     align-items: center;
-    font-family: 'Courgette', cursive;
+    font-weight: 500;
+    font-family: 'Lora', serif;
     font-size: 20px;
     background-color: black;
     width: 100%;
@@ -60,6 +61,7 @@
     justify-content: flex-start;
     align-items: center;
     margin-left: 250px;
+
 }
 
 .nav .nav-item {
@@ -91,6 +93,15 @@
     cursor: pointer;
 }
 
+.disableSignIn,
+.disableSignUp,
+.disableSignOut {
+    display: none;
+}
+
+.x {
+    border-bottom: 1px solid rgba(167, 38, 218, 0.39);
+}
 
 .active {
     color: rgb(43, 132, 192);
@@ -124,9 +135,11 @@
     .home {
         margin-top: 1px;
     }
-    .fa-user{
+
+    .fa-user {
         padding-top: 15px;
     }
+
     .drop {
         flex-direction: column;
         width: 100%;
@@ -155,7 +168,7 @@
 /* search bar */
 
 .cont {
-    height: 720px;
+    height: 92vh;
     background-image: url(../images/stocks.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -172,13 +185,16 @@
 }
 
 .signnav a {
-    color: black;
+    color: rgb(134, 46, 46);
     text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .layer h1 {
     color: white;
     width: 300px;
+    font-size: 40px;
     font-family: 'Courgette', cursive;
 }
 
@@ -279,6 +295,12 @@
     font-family: 'Diphylleia', serif;
     font-family: 'Lora', serif;
     overflow: auto;
+    
+}
+
+.Sign_Up h1 {
+    font-family: 'Courgette', cursive;
+    font-size: 40px;
 }
 
 .Sign_Up .img_sign {
@@ -305,6 +327,8 @@
     border-bottom: 1px solid rgb(49, 68, 179);
     background-color: transparent;
     margin: 10px;
+    color: white;
+    font-size: 16px;
 }
 
 .Sign_Up form input::placeholder {
@@ -387,6 +411,7 @@
 }
 
 @media (max-width: 900px) {
+
     .Sign_Up form,
     .Sign_Up form input::placeholder,
     .Sign_Up form #button {
@@ -411,6 +436,7 @@
 }
 
 @media (min-height: 1000px) {
+
     .Sign_Up form,
     .Sign_Up form input::placeholder,
     .Sign_Up form #button {
