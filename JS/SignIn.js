@@ -10,6 +10,7 @@ function updateFlag(value) {
     flag = value;
     window.localStorage.setItem("flag", JSON.stringify(value));
 }
+console.log(flag);
 if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html") {
     form.onsubmit = function (e) {
         // Reset count for every form submission
@@ -71,5 +72,7 @@ if (flag === true) {
     document.getElementById("SinUp").classList.remove("x");
     document.getElementById("SinIn").classList.add("disableSignIn");
     document.getElementById("SignOut").classList.remove("disableSignOut");
+    console.log("ok");
     updateFlag(false);
+    console.log(flag);
 }
