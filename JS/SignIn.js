@@ -11,7 +11,7 @@ function updateFlag(value) {
     window.localStorage.setItem("flag", JSON.stringify(value));
 }
 console.log(flag);
-if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html") {
+if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html" || window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html?") {
     form.onsubmit = function (e) {
         // Reset count for every form submission
         let count = 0;
