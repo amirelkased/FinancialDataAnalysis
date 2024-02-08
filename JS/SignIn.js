@@ -1,4 +1,4 @@
-let form = document.getElementsByClassName("form")[0];
+const form = document.getElementById("signInform");
 let inputs = document.getElementsByClassName("inputs");
 let error = document.getElementsByClassName("error");
 // Retrieve flag value from local storage
@@ -49,6 +49,7 @@ if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B
         if (count === inputs.length) {
             document.getElementsByClassName("form")[0].submit();
             updateFlag(true); // Update flag value to true
+            submitForm();
         }
     };
 
@@ -73,3 +74,47 @@ if (flag === true) {
     updateFlag(false);
 }
 
+const apiUrl = 'http://localhost:8081/auth/signup';
+
+function submitForm() {
+    const formData = new FormData(form);
+    const requestOptions = {
+        method: 'POST',
+        body: formData,
+    };
+    fetch(apiUrl, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        //.then(response =>response.json());
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+/*function signIn() {
+    const apiUrl = 'http://localhost:8081/auth/signup';
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // Assuming the server returns the HTML form
+        })
+        .then(formHTML => {
+            // Update the form content with the fetched HTML
+            form.innerHTML = formHTML;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+window.onload = function () {
+    signIn(new Event('submit'));
+};*/

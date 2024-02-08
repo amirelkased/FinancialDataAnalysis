@@ -332,7 +332,7 @@
 }
 
 .Sign_Up form input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.603);
     font-family: 'Diphylleia', serif;
     font-family: 'Lora', serif;
     font-size: 17px;

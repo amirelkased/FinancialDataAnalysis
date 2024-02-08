@@ -1,4 +1,4 @@
-const form = document.getElementsByClassName("form")[0];
+const form = document.getElementById("signUpform");
 const inputs = document.getElementsByClassName("inputs");
 const error = document.getElementsByClassName("error");
 let count = 0;
@@ -76,7 +76,7 @@ function displayError(index, message) {
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:8081/auth/signup';
+const apiUrl = 'http://localhost:8081/auth/login';
 
 function submitForm() {
     const formData = new FormData(form);
