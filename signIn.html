@@ -23,13 +23,13 @@
             <img class="img_sign" src="images/WhatsApp Image 2024-01-28 at 8.18.18 PM.jpeg">
             <h1>Good Analysis Means Guaranteed Profit</h1>
         </div>
-        <form class="form fSign" action="index.html" onsubmit="SignOut()">
-            <input class="inputs user" type="text" placeholder="User Name">
+        <form class="form fSign" method="post" action="index.html" onsubmit="SignOut()">
+            <input class="inputs user" name="username" type="text" placeholder="User Name">
             <div class="error"></div>
-            <input class="password inputs" type="password" placeholder="Password">
+            <input class="password inputs" name="password" type="password" placeholder="Password">
             <div class="error"></div>
             <div class="button">
-                <button type="submit" id="button">Sign In</button>
+                <button type="submit" id="button">Log In</button>
             </div>
         </form>
     </div>

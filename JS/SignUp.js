@@ -1,19 +1,18 @@
-let form = document.getElementsByClassName("form")[0];
-let inputs = document.getElementsByClassName("inputs");
-let error = document.getElementsByClassName("error");
+const form = document.getElementsByClassName("form")[0];
+const inputs = document.getElementsByClassName("inputs");
+const error = document.getElementsByClassName("error");
 let count = 0;
 
 form.onsubmit = function (e) {
     // Reset count for every form submission
     count = 0;
 
-
     for (let x = 0; x < inputs.length; x++) {
         let inputValue = inputs[x].value.trim();
         if (inputValue !== '' && inputValue !== ' ') {
             if (inputs[x].classList.contains('name')) {
                 let name = inputValue;
-                if (name.length >= 3 && name.match(/[a-zA-Z]/)) {
+                if (name.length >= 3 && name.match(/^[a-zA-Z]+$/) ) {
                     error[x].style.display = "none";
                 } else {
                     e.preventDefault();
@@ -62,8 +61,7 @@ form.onsubmit = function (e) {
 
     // If all conditions are met, submit the form
     if (count === inputs.length) {
-        document.getElementsByClassName("form")[0].submit();
-
+        submitForm();
     }
 };
 
@@ -76,5 +74,28 @@ function displayError(index, message) {
     error[index].style.display = "block";
     // Display the error message
     error[index].textContent = message;
+}
 
+const apiUrl = 'http://localhost:8081/auth/signup';
+
+function submitForm() {
+    const formData = new FormData(form);
+    const requestOptions = {
+        method: 'POST',
+        body: formData,
+    };
+    fetch(apiUrl, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        //.then(response =>response.json());
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }

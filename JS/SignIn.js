@@ -1,7 +1,6 @@
 let form = document.getElementsByClassName("form")[0];
 let inputs = document.getElementsByClassName("inputs");
 let error = document.getElementsByClassName("error");
-
 // Retrieve flag value from local storage
 let flag = JSON.parse(window.localStorage.getItem("flag")) || false;
 
@@ -10,8 +9,7 @@ function updateFlag(value) {
     flag = value;
     window.localStorage.setItem("flag", JSON.stringify(value));
 }
-if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html" || window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html?"
-|| window.location.href === "https://amirelkased.github.io/FinancialDataAnalysis/signIn.html"|| window.location.href === "https://amirelkased.github.io/FinancialDataAnalysis/signIn.html?") {
+if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html" || window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9/Graduation%20Project/signIn.html?") {
     form.onsubmit = function (e) {
         // Reset count for every form submission
         let count = 0;
@@ -74,3 +72,4 @@ if (flag === true) {
     document.getElementById("SignOut").classList.remove("disableSignOut");
     updateFlag(false);
 }
+
