@@ -74,7 +74,7 @@ if (flag === true) {
     updateFlag(false);
 }
 
-const apiUrl = 'http://localhost:8081/auth/signup';
+const apiUrl = 'http://localhost:8081/auth/login';
 
 function submitForm() {
     const formData = new FormData(form);

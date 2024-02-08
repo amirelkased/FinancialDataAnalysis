@@ -76,7 +76,7 @@ function displayError(index, message) {
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:8081/auth/login';
+const apiUrl = 'http://localhost:8081/auth/signup';
 
 function submitForm() {
     const formData = new FormData(form);
