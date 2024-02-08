@@ -49,7 +49,7 @@ if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B
         if (count === inputs.length) {
             document.getElementsByClassName("form")[0].submit();
             updateFlag(true); // Update flag value to true
-            submitForm();
+            submitForms();
         }
     };
 
@@ -76,7 +76,7 @@ if (flag === true) {
 
 const apiUrl = 'http://localhost:8081/auth/login';
 
-function submitForm() {
+function submitForms() {
     const formData = new FormData(form);
     const requestOptions = {
         method: 'POST',
