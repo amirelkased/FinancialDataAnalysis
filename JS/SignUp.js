@@ -12,7 +12,7 @@ form.onsubmit = function (e) {
         if (inputValue !== '' && inputValue !== ' ') {
             if (inputs[x].classList.contains('name')) {
                 let name = inputValue;
-                if (name.length >= 3 && name.match(/^[a-zA-Z]+$/) ) {
+                if (name.length >= 3 && name.match(/^[a-zA-Z]+$/)) {
                     error[x].style.display = "none";
                 } else {
                     e.preventDefault();
@@ -61,7 +61,7 @@ form.onsubmit = function (e) {
 
     // If all conditions are met, submit the form
     if (count === inputs.length) {
-        submitForm();
+        prevent(event);
     }
 };
 
@@ -77,25 +77,28 @@ function displayError(index, message) {
 }
 
 const apiUrl = 'http://localhost:8081/auth/signup';
-
-function submitForm() {
+function prevent(event) {
+    event.preventDefault();
     const formData = new FormData(form);
-    const requestOptions = {
-        method: 'POST',
-        body: formData,
-    };
-    fetch(apiUrl, requestOptions)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        //.then(response =>response.json());
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    const data = Object.fromEntries(formData);
+    const jsonData = JSON.stringify(data);
+    function submitForm() {
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: jsonData,
+        };
+        fetch(apiUrl, requestOptions)
+            .then(response =>
+                response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    submitForm();
 }
