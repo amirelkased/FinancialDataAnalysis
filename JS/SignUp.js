@@ -99,7 +99,7 @@ function prevent(event) {
             .then(data => {
                 console.log('Success:', data.status);
                 if (data.status !== "success"){
-                    alert('This E-mail or User-Name is used before');
+                    alert('The E-mail or User-Name is used before');
                 }
                 else{
                     form.submit();

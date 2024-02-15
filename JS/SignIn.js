@@ -48,8 +48,8 @@ if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B
 
         // If all conditions are met, submit the form
         if (count === inputs.length) {
-            updateFlag(true); // Update flag value to true
             prevents(event);
+            updateFlag(true); // Update flag value to true
         }
     };
 
