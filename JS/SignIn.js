@@ -3,6 +3,7 @@ let inputs = document.getElementsByClassName("inputs");
 let error = document.getElementsByClassName("error");
 // Retrieve flag value from local storage
 let flag = JSON.parse(window.localStorage.getItem("flag")) || false;
+const apiUrl = 'http://localhost:9090/auth/login';
 
 // Function to update flag value in local storage
 function updateFlag(value) {
@@ -18,7 +19,7 @@ if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B
             if (inputValue !== '' && inputValue !== ' ') {
                 if (inputs[x].classList.contains('user')) {
                     let user = inputValue;
-                    if (user.length >= 7 && user.match(/[a-zA-Z]/) && user.match(/[0-9_.]/)) {
+                    if (user.match(/^[a-zA-Z0-9_\-]{3,}$/)) {
                         error[x].style.display = "none";
                     } else {
                         displayError(x, 'Enter your User Name');
@@ -47,9 +48,8 @@ if (window.location.href === "file:///E:/Maryam/%D9%81%D8%B1%D9%82%D8%A9%20%D8%B
 
         // If all conditions are met, submit the form
         if (count === inputs.length) {
-            document.getElementsByClassName("form")[0].submit();
             updateFlag(true); // Update flag value to true
-            submitForms();
+            prevents(event);
         }
     };
 
@@ -74,47 +74,36 @@ if (flag === true) {
     updateFlag(false);
 }
 
-const apiUrl = 'http://localhost:8081/auth/login';
-
-function submitForms() {
+function prevents(event) {
+    event.preventDefault();
     const formData = new FormData(forms);
-    const requestOptions = {
-        method: 'POST',
-        body: formData,
-    };
-    fetch(apiUrl, requestOptions)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        //.then(response =>response.json());
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    const data = Object.fromEntries(formData);
+    const jsonData = JSON.stringify(data);
+    function submitForms() {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: jsonData,
+        };
+        fetch(apiUrl, requestOptions)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data.status);
+                if (data.status !== "success"){
+                    alert('The User-Name or Password may be false');
+                }
+                else{
+                    forms.submit();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    submitForms();
 }
-
-/*function signIn() {
-    const apiUrl = 'http://localhost:8081/auth/signup';
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text(); // Assuming the server returns the HTML form
-        })
-        .then(formHTML => {
-            // Update the form content with the fetched HTML
-            form.innerHTML = formHTML;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-}
-window.onload = function () {
-    signIn(new Event('submit'));
-};*/

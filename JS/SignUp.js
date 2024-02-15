@@ -2,6 +2,7 @@ const form = document.getElementById("signUpform");
 const inputs = document.getElementsByClassName("inputs");
 const error = document.getElementsByClassName("error");
 let count = 0;
+let send = 0;
 
 form.onsubmit = function (e) {
     // Reset count for every form submission
@@ -21,21 +22,21 @@ form.onsubmit = function (e) {
                 }
             }
             else if (inputs[x].classList.contains('email')) {
-                let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com)$/i;
-                if (emailPattern.test(inputValue) && inputValue.length >= 16) {
+                let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (emailPattern.test(inputValue)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'Email should be username @gmail or yahoo.com');
+                    displayError(x, 'Enter valid E-mail');
                     e.preventDefault();
                     return;
                 }
             }
             else if (inputs[x].classList.contains('user')) {
                 let user = inputValue;
-                if (user.length >= 7 && user.match(/[a-zA-Z]/) && user.match(/[0-9_.]/)) {
+                if (user.match(/^[a-zA-Z0-9_\-]{3,}$/)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'Username should contain your name and 0:9 or _ or .');
+                    displayError(x, 'Username should contain characters and may have numbers, _ or -');
                     e.preventDefault();
                     return;
                 }
@@ -65,7 +66,7 @@ form.onsubmit = function (e) {
     }
 };
 
-function displayError(index, message) {
+function displayError(index, message){
     // Clear errors for all fields
     for (let y = 0; y < inputs.length; y++) {
         error[y].style.display = "none";
@@ -76,7 +77,7 @@ function displayError(index, message) {
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:8081/auth/signup';
+const apiUrl = 'http://localhost:9090/auth/signup';
 function prevent(event) {
     event.preventDefault();
     const formData = new FormData(form);
@@ -85,16 +86,24 @@ function prevent(event) {
     function submitForm() {
         const requestOptions = {
             method: 'POST',
-            headers: {'Accept': 'application/json',
+            headers: {
+                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: jsonData,
         };
         fetch(apiUrl, requestOptions)
-            .then(response =>
-                response.json())
+            .then(response => {
+                return response.json();
+            })
             .then(data => {
-                console.log('Success:', data);
+                console.log('Success:', data.status);
+                if (data.status !== "success"){
+                    alert('This E-mail or User-Name is used before');
+                }
+                else{
+                    form.submit();
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
