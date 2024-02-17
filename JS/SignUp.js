@@ -77,7 +77,7 @@ function displayError(index, message){
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:9090/auth/signup';
+const apiUrl = 'http://localhost:9194/auth/signup';
 function prevent(event) {
     event.preventDefault();
     const formData = new FormData(form);
@@ -97,7 +97,7 @@ function prevent(event) {
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data.status);
+                console.log('State:', data);
                 if (data.status !== "success"){
                     alert('The E-mail or User-Name is used before');
                 }

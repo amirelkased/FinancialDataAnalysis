@@ -20,7 +20,7 @@ if (flag === true) {
 
 forms.onsubmit = function (e) {
     // Reset count for every form submission
-    let count = 0;
+    let counts = 0;
     for (let x = 0; x < inputs.length; x++) {
         let inputValue = inputs[x].value.trim();
         if (inputValue !== '' && inputValue !== ' ') {
@@ -45,7 +45,7 @@ forms.onsubmit = function (e) {
                     return;
                 }
             }
-            count++;
+            counts++;
         } else {
             displayError(x, 'This field is required');
             e.preventDefault();
@@ -54,7 +54,7 @@ forms.onsubmit = function (e) {
     }
 
     // If all conditions are met, submit the form
-    if (count === inputs.length) {
+    if (counts === inputs.length) {
         prevents(event);
         updateFlag(true); // Update flag value to true
     }
@@ -71,7 +71,8 @@ function displayError(index, message) {
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:9090/auth/login';
+const apiUrl = 'http://localhost:9194/auth/login';
+let tokens;
 function prevents(event) {
     event.preventDefault();
     const formData = new FormData(forms);
@@ -91,12 +92,14 @@ function prevents(event) {
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data.status);
+                console.log('state:', data);
                 if (data.status !== "success") {
                     alert('The User-Name or Password may be false');
                 }
                 else {
                     forms.submit();
+                    tokens = data.token;
+                    window.localStorage.setItem("Token", tokens);
                 }
             })
             .catch(error => {
