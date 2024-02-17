@@ -6,7 +6,7 @@ SignOut.onclick = function () {
     document.getElementById("SinUp").classList.add("x");
     document.getElementById("SinIn").classList.remove("disableSignIn");
     document.getElementById("SignOut").classList.add("disableSignOut");
-    window.localStorage.setItem("Token", "");
+    window.localStorage.removeItem("Token");
 }
 const apiUrlOut = 'http://localhost:9194/auth/logout';
 function preventSignOut(event) {
