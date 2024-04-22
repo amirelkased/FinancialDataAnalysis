@@ -77,7 +77,7 @@ function displayError(index, message){
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:9194/auth/signup';
+const apiUrl = 'http://localhost:8088/api/v1/auth/register';
 function prevent(event) {
     event.preventDefault();
     const formData = new FormData(form);
@@ -94,11 +94,12 @@ function prevent(event) {
         };
         fetch(apiUrl, requestOptions)
             .then(response => {
+                console.log(response);
                 return response.json();
             })
             .then(data => {
                 console.log('State:', data);
-                if (data.status !== "success"){
+               if (data.status !== "success"){
                     alert('The E-mail or User-Name is used before');
                 }
                 else{

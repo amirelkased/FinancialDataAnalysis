@@ -1,4 +1,5 @@
-    let suggestions=["PIH",
+let suggestions = [
+    "PIH",
     "PIHPP",
     "TURN",
     "FLWS",
@@ -893,7 +894,7 @@
     "DLPNW",
     "DOMO",
     "DGICA",
-    ,"GICB",
+    , "GICB",
     "DMLP",
     "DORM",
     "DOVA",
@@ -3425,4 +3426,5 @@
     "ZUMZ",
     "ZYNE",
     "ZNGA",
-    ];
+];
+export { suggestions };
