@@ -24,12 +24,12 @@ forms.onsubmit = function (e) {
     for (let x = 0; x < inputs.length; x++) {
         let inputValue = inputs[x].value.trim();
         if (inputValue !== '' && inputValue !== ' ') {
-            if (inputs[x].classList.contains('user')) {
-                let user = inputValue;
-                if (user.match(/^[a-zA-Z0-9_\-]{3,}$/)) {
+            if (inputs[x].classList.contains('email')) {
+                let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (emailPattern.test(inputValue)) {
                     error[x].style.display = "none";
                 } else {
-                    displayError(x, 'Enter your User Name');
+                    displayError(x, 'Enter valid E-mail');
                     e.preventDefault();
                     return;
                 }
@@ -37,7 +37,7 @@ forms.onsubmit = function (e) {
             // Validating password
             else if (inputs[x].classList.contains('password')) {
                 let pass = inputValue;
-                if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*.+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
+                if (pass.length >= 8 && pass.match(/[0-9]/) && /[~`!#$%\^&*.+=\- _\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
                     error[x].style.display = "none";
                 } else {
                     displayError(x, "Enter your Password");
@@ -71,7 +71,7 @@ function displayError(index, message) {
     error[index].textContent = message;
 }
 
-const apiUrl = 'http://localhost:9194/auth/login';
+const apiUrl = 'http://localhost:8088/api/v1/auth/authenticate';
 let tokens;
 function prevents(event) {
     event.preventDefault();
@@ -89,18 +89,19 @@ function prevents(event) {
         };
         fetch(apiUrl, requestOptions)
             .then(response => {
+                console.log(response);
+                if (response.status === 200) {
+                    forms.submit();
+                }
+                else {
+                    alert('Email or Password may be false');
+                }
                 return response.json();
             })
             .then(data => {
-                console.log('state:', data);
-                if (data.status !== "success") {
-                    alert('The User-Name or Password may be false');
-                }
-                else {
-                    forms.submit();
-                    tokens = data.token;
-                    window.localStorage.setItem("Token", tokens);
-                }
+                tokens = data.token;
+                console.log("token", tokens);
+                window.localStorage.setItem("Token",tokens);
             })
             .catch(error => {
                 console.error('Error:', error);

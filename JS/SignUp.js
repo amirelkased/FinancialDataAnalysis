@@ -44,7 +44,7 @@ form.onsubmit = function (e) {
             // Validating password
             else if (inputs[x].classList.contains('password')) {
                 let pass = inputValue;
-                if (pass.length >= 10 && pass.match(/[0-9]/) && /[~`!#$%\^&*+=\-._\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
+                if (pass.length >= 8 && pass.match(/[0-9]/) && /[~`!#$%\^&*+=\-._\[\]\\';,/{}|\\":<>\?]/.test(pass) && pass.match(/[A-Z]/) && pass.match(/[a-z]/)) {
                     error[x].style.display = "none";
                 } else {
                     displayError(x, "Password must contain capital,small letters,numbers and special characters and the length shouldn't be shorter than 10");
@@ -66,7 +66,7 @@ form.onsubmit = function (e) {
     }
 };
 
-function displayError(index, message){
+function displayError(index, message) {
     // Clear errors for all fields
     for (let y = 0; y < inputs.length; y++) {
         error[y].style.display = "none";
@@ -94,16 +94,12 @@ function prevent(event) {
         };
         fetch(apiUrl, requestOptions)
             .then(response => {
-                console.log(response);
-                return response.json();
-            })
-            .then(data => {
-                console.log('State:', data);
-               if (data.status !== "success"){
-                    alert('The E-mail or User-Name is used before');
-                }
-                else{
+                console.log(response.status);
+                if (response.status === 202) {
                     form.submit();
+                }
+                else {
+                    alert('The E-mail is used before');
                 }
             })
             .catch(error => {

@@ -1,6 +1,6 @@
 const apiKey = 'cd8bf500c4974ecd9822657d1d2ad899';
 const newsList = document.getElementById('news-list');
-import { suggestions } from "./suggestions.Js";
+import { suggestions } from "./StockName.js";
 import { companyNames } from "./Names.js";
 import { Sectors } from "./Sectors.js";
 import { industry } from "./Industry.js";
@@ -50,13 +50,13 @@ function displayArticles(articles) {
 }
 
 // Fetch news for each keyword
-/*suggestions.forEach(keyword => {
+suggestions.forEach(keyword => {
     fetchNews(keyword + ' stock');
-});*/
+});
 
-/*companyNames.forEach(keyword => {
+companyNames.forEach(keyword => {
     fetchNews(keyword);
-});*/
+});
 
 Sectors.forEach(keyword => {
     fetchNews(keyword);

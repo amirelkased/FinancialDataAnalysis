@@ -109,11 +109,15 @@
 
 .drop {
     display: flex;
-    width: 80%;
+    width:75%;
 }
+
 
 .contain {
     display: flex;
+}
+.fa-user{
+    margin-left: 180px;
 }
 
 .humbg {
@@ -138,6 +142,7 @@
 
     .fa-user {
         padding-top: 15px;
+        margin-left:0px;
     }
 
     .drop {
@@ -481,4 +486,106 @@
     .Sign_Up form {
         padding-top: 100px;
     }
+}
+
+/************************************************** Verification  **************************************************/
+
+/* Variables */
+:root {
+    --bg-color: #EBECEF;
+    --fg-color: #222222;
+    --mute-color: #949494;
+    --heading-color: #000000;
+    --link-color: #7E9CC5;
+    --container-color: #FFFFFF;
+
+    --sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --monospace-font-family: AinaMono, monospace;
+    --base-font-family: var(--sans-serif);
+
+    --base-line-height: 1.4;
+    --base-font-size: 16px;
+
+    --font-size-large: calc(var(--base-font-size) * 2.25);
+    /* ~36px */
+    --font-size-medium: calc(var(--base-font-size) * 1.5);
+    /* ~24px */
+    --font-size-small: calc(var(--base-font-size) * 0.875);
+    /* ~14px */
+}
+
+/* Body Styles */
+html,
+body{
+    height: 100%;
+}
+
+body {
+    font-family: var(--base-font-family);
+    line-height: var(--base-line-height);
+    font-size: var(--base-font-size);
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+    text-rendering: optimizeLegibility;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+}
+
+.text--mute {
+    color: var(--mute-color);
+}
+
+.text--center {
+    text-align: center;
+}
+
+/* Layout Styles */
+.wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.container {
+    width: 450px;
+    margin: auto;
+}
+
+.panel {
+    background: var(--container-color);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.16),
+        0px 4px 8px 0px rgba(0, 0, 0, 0.04),
+        0px 16px 32px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: var(--font-size-large);
+}
+
+/* Typography Styles */
+.heading {
+    font-weight: 400;
+    font-size: var(--font-size-medium);
+    margin: 0 0 var(--s-small) 0;
+}
+
+.caption {
+    font-weight: 500;
+    font-size: var(--font-size-small);
+    margin: 0 0 var(--s-small) 0;
+}
+
+/* Segmented Input Styles */
+.code {
+    text-align: center;
+    border: 1px solid #999;
+    width: 37px;
+    height: 37px;
+    border-radius: 5px;
+    margin: 20px 10px 0px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000d0;
+    padding-bottom: 5px;
 }

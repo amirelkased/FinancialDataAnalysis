@@ -1,4 +1,4 @@
-document.getElementById("show").onclick = function () {
+/*document.getElementById("show").onclick = function () {
     let prediction = parseInt(document.getElementById("predictionx").value);
     if (prediction < 1 || prediction > 15 || isNaN(prediction)) {
         document.getElementById("warning").style.display = "block";
@@ -8,7 +8,8 @@ document.getElementById("show").onclick = function () {
         document.getElementById("predictionx").value = "";
         document.getElementById("warning").style.display = "none";
     }
-}
+}*/
+
 /*
 document.getElementById("predictiony").onkeypress = function (ev) {
     if (ev.keyCode == 13) {

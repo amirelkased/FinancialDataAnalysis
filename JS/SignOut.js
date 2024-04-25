@@ -1,14 +1,12 @@
 let getToken = window.localStorage.getItem("Token");
-let SignOut = document.getElementById("xSignOut");
-SignOut.onclick = function () {
+let signOutButton = document.getElementById("xSignOut");
+
+function logout() {
     preventSignOut(event);
-    document.getElementById("SinUp").classList.remove("disableSignUp");
-    document.getElementById("SinUp").classList.add("x");
-    document.getElementById("SinIn").classList.remove("disableSignIn");
-    document.getElementById("SignOut").classList.add("disableSignOut");
-    window.localStorage.removeItem("Token");
 }
-const apiUrlOut = 'http://localhost:9194/auth/logout';
+
+const apiUrlOut = 'http://localhost:8088/api/v1/auth/logout';
+
 function preventSignOut(event) {
     event.preventDefault();
     function submitFormOut() {
@@ -22,10 +20,12 @@ function preventSignOut(event) {
         };
         fetch(apiUrlOut, requestOptions)
             .then(response => {
+                if (response.status !== 200) {
+                    throw new Error('Failed to logout');
+                }
+                window.localStorage.removeItem("Token");
+                updateUIOnLogout(); // Update UI after successful logout
                 return response.text();
-            })
-            .then(data => {
-                console.log('Sign-out successful:', data);
             })
             .catch(error => {
                 console.error('Error during sign-out:', error);
@@ -33,3 +33,14 @@ function preventSignOut(event) {
     }
     submitFormOut();
 }
+
+function updateUIOnLogout() {
+    // Enable Sign-Up and Sign-In, Disable Sign-Out
+    document.getElementById("SinUp").classList.remove("disableSignUp");
+    document.getElementById("SinUp").classList.add("x");
+    document.getElementById("SinIn").classList.remove("disableSignIn");
+    document.getElementById("SignOut").classList.add("disableSignOut");
+}
+
+// Add event listener to the Sign-Out button
+signOutButton.addEventListener('click', logout);
