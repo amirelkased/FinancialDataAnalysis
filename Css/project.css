@@ -109,15 +109,16 @@
 
 .drop {
     display: flex;
-    width:75%;
+    width: 80%;
 }
 
 
 .contain {
     display: flex;
 }
-.fa-user{
-    margin-left: 180px;
+
+.fa-user {
+    margin-left: 100px;
 }
 
 .humbg {
@@ -142,7 +143,7 @@
 
     .fa-user {
         padding-top: 15px;
-        margin-left:0px;
+        margin-left: 0px;
     }
 
     .drop {
@@ -173,7 +174,7 @@
 /* search bar */
 
 .cont {
-    height: 92vh;
+    height: 92.4vh;
     background-image: url(../images/stocks.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -516,7 +517,7 @@
 
 /* Body Styles */
 html,
-body{
+body {
     height: 100%;
 }
 
@@ -588,4 +589,137 @@ body {
     font-size: 20px;
     color: #000000d0;
     padding-bottom: 5px;
+}
+
+/******************************* VOTING *************************/
+
+/*.Vcont {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 45%;
+}*/
+/*.Vform {
+    display: flex;
+
+}*/
+
+/*.Voting {
+    width: 50%;
+    margin-left: 50px;
+}*/
+
+.Vlayer {
+    height: 100%;
+    padding: 35px;
+}
+
+.Votes,
+.Vlayer {
+    background-color: white;
+    font-weight: 500;
+}
+
+.Votes {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Votelayer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Vinput {
+    width: 150px;
+    padding: 5px;
+    margin: 10px 10px 80px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Vote-input {
+    background-color: white;
+    border-radius: 20px;
+    width: 400px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.Vote-input .search {
+    height: 50px;
+    width: 400px;
+    border-radius: 20px;
+    font-size: 20px;
+    padding-left: 40px;
+    background-color: transparent;
+    color: black;
+    border-color: rgb(191, 79, 206) rgb(75, 131, 194) rgb(156, 61, 101) rgb(168, 92, 212);
+}
+
+.Vlabel {
+    width: 150px;
+    text-align: center;
+    padding: 5px;
+    margin: 20px 10px 0px;
+}
+
+.info {
+    visibility: hidden;
+}
+
+#sendVote {
+    display: flex;
+    justify-content: center !important;
+}
+
+#voteButton {
+    height: 40px;
+    width: 120px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color: rgb(70, 114, 207);
+    border: none;
+    color: white;
+}
+
+.Votes {
+    display: none;
+}
+
+/************************************* Up Arrow ***************************************/
+.up {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    color: white;
+    border: 1px solid white;
+    background-color:#9c2077;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+.hide {
+    right: -50px;
+    bottom: 100px;
+    transition: all 0.5s ease-in-out;
+}
+
+.up:hover {
+    background-color: #172b70;
+    color: white;
+    transition: all 0.8s ease-in-out;
 }

@@ -17,11 +17,15 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Courgette&family=Diphylleia&family=Lora:ital,wght@1,400;1,500&family=Playfair+Display+SC:ital@1&display=swap"
     rel="stylesheet">
+    
 </head>
 
 <body>
-  <div class="alert alert-danger" role="alert" id="warning" style="margin-bottom: 0px;display:none;">
+  <!--<div class="alert alert-danger" role="alert" id="warning" style="margin-bottom: 0px;display:none;">
     <strong>Oh snap!</strong> you must Enter Number and it must be between 1 and 15.
+  </div>-->
+  <div class="up hide">
+    <i class="fa-solid fa-arrow-up"></i>
   </div>
   <ul class="nav">
     <div class="img">
@@ -38,6 +42,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="news.html">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light clickVote" href="#Voting">Voting</a>
       </li>
       <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button">Stock
@@ -115,12 +122,49 @@
       </div>
     </div>
   </div>
+  <div class="Votes">
+    <div class="Voting" id="Voting">
+      <div class="Votelayer">
+        <form class="form Vform" id="VoteForm" action="">
+          <div class="Vcont">
+            <div class="layer Vlayer">
+              <div class="Vote-input">
+                <input type="text" class="search" placeholder="Vote" id="txtSearch">
+                <div class="boxSearch">
+                </div>
+                <span><i class="fa fa-search voteSearch" aria-hidden="true" id="frmSearch"></i></span>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="info">
+        <div class="labels">
+          <label class="Vlabel">Stock Name</label>
+          <label class="Vlabel">Open</label>
+          <label class="Vlabel">Close</label>
+          <label class="Vlabel">Number of votes</label>
+        </div>
+        <div class="inputs">
+          <input class="Vinput" id="name" readonly>
+          <input class="Vinput" id="open" readonly>
+          <input class="Vinput" id="close" readonly>
+          <input class="Vinput" id="votes" readonly>
+          <div id="sendVote">
+          <input class="Vinput" id="voting" placeholder="Vote">
+          <button id="voteButton">Vote</button>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="JS/Search.js"></script>
   <script type="module" src="JS/StockName.js"></script>
   <script src="JS/main.js"></script>
   <script src="JS/SignIn.js"></script>
   <script src="JS/SignOut.js"></script>
+  <script src="JS/Voting.js"></script>
 </body>
 
 </html>
