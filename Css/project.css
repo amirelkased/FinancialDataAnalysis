@@ -204,6 +204,8 @@
     font-family: 'Courgette', cursive;
 }
 
+/*****************************************Search************************************************/
+
 .search-input {
     background-color: white;
     border-radius: 20px;
@@ -233,7 +235,7 @@
     text-align: center;
 }
 
-.layer .boxSearch {
+.boxSearch {
     overflow-y: auto;
     max-height: 290px;
     opacity: 0;
@@ -675,7 +677,6 @@ body {
 
 #sendVote {
     display: flex;
-    justify-content: center !important;
 }
 
 #voteButton {
@@ -692,6 +693,41 @@ body {
 .Votes {
     display: none;
 }
+
+#suggestionsList {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Initially hide suggestions */
+    cursor: pointer;
+    width:390px;
+    border-radius: 10px;
+}
+
+#suggestionsList.active {
+    display: block; /* Show suggestions when active class is applied */
+}
+
+#suggestionsList li {
+    list-style: none;
+    padding: 5px 12px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.link:hover,
+#suggestionsList li:hover {
+    background-color: rgb(70, 114, 207);
+}
+
 
 /************************************* Up Arrow ***************************************/
 .up {

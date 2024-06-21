@@ -1,12 +1,12 @@
-const apiKey = 'cd8bf500c4974ecd9822657d1d2ad899';
+const apiKey = '34a06e3996b846f4bc41c52be0ea2c63';
 const newsList = document.getElementById('news-list');
-import { suggestions } from "./StockName.js";
+import { suggestion } from "./StockName.js";
 import { companyNames } from "./Names.js";
 import { Sectors } from "./Sectors.js";
 import { industry } from "./Industry.js";
 // Function to fetch news for each keyword
 function fetchNews(keyword) {
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&sortBy=popularity&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&sortBy=popularity&from=2024-06-10&apiKey=${apiKey}`;
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -50,7 +50,7 @@ function displayArticles(articles) {
 }
 
 // Fetch news for each keyword
-suggestions.forEach(keyword => {
+suggestion.forEach(keyword => {
     fetchNews(keyword + ' stock');
 });
 

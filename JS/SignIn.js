@@ -7,15 +7,16 @@ let flag = JSON.parse(window.localStorage.getItem("flag")) || false;
 // Function to update flag value in local storage
 function updateFlag(value) {
     flag = value;
-    window.localStorage.setItem("flag", JSON.stringify(value));
+    window.localStorage.setItem("flag", JSON.stringify(value)); // Fixed typo here
 }
+
 // Check flag value and update UI accordingly
 if (flag === true) {
     document.getElementById("SinUp").classList.add("disableSignUp");
     document.getElementById("SinUp").classList.remove("x");
     document.getElementById("SinIn").classList.add("disableSignIn");
     document.getElementById("SignOut").classList.remove("disableSignOut");
-    updateFlag(false);
+    //updateFlag(false);
 }
 
 forms.onsubmit = function (e) {
@@ -46,6 +47,7 @@ forms.onsubmit = function (e) {
                 }
             }
             counts++;
+            console.log(counts);
         } else {
             displayError(x, 'This field is required');
             e.preventDefault();
@@ -54,7 +56,7 @@ forms.onsubmit = function (e) {
     }
 
     // If all conditions are met, submit the form
-    if (counts === inputs.length) {
+    if (counts === 2) {
         prevents(event);
         updateFlag(true); // Update flag value to true
     }
@@ -78,6 +80,7 @@ function prevents(event) {
     const formData = new FormData(forms);
     const data = Object.fromEntries(formData);
     const jsonData = JSON.stringify(data);
+
     function submitForms() {
         const requestOptions = {
             method: 'POST',
@@ -87,25 +90,28 @@ function prevents(event) {
             },
             body: jsonData,
         };
+
         fetch(apiUrl, requestOptions)
             .then(response => {
                 console.log(response);
                 if (response.status === 200) {
-                    forms.submit();
+                    return response.json(); // Parse response body as JSON
+                } else {
+                    throw new Error('Failed to authenticate'); // Throw error for non-200 status
                 }
-                else {
-                    alert('Email or Password may be false');
-                }
-                return response.json();
             })
             .then(data => {
                 tokens = data.token;
                 console.log("token", tokens);
-                window.localStorage.setItem("Token",tokens);
+                window.localStorage.setItem("Token", tokens);
+                updateFlag(true); // Update flag after successful authentication
+                forms.submit(); // Submit the form after flag is updated
             })
             .catch(error => {
                 console.error('Error:', error);
+                alert('Email or Password may be false');
             });
     }
+
     submitForms();
 }

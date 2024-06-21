@@ -1,4 +1,4 @@
-let suggestions = [
+let suggestion = [
     "PIH",
     "PIHPP",
     "TURN",
@@ -3427,4 +3427,4 @@ let suggestions = [
     "ZYNE",
     "ZNGA",
 ];
-export { suggestions };
+export { suggestion };

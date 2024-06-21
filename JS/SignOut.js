@@ -24,6 +24,10 @@ function preventSignOut(event) {
                     throw new Error('Failed to logout');
                 }
                 window.localStorage.removeItem("Token");
+                window.localStorage.removeItem("predictionData");
+                window.localStorage.removeItem("Marketindicators");
+                window.localStorage.removeItem("flag");
+                window.localStorage.setItem("flag","false")
                 updateUIOnLogout(); // Update UI after successful logout
                 return response.text();
             })

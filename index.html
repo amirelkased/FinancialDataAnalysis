@@ -17,7 +17,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Courgette&family=Diphylleia&family=Lora:ital,wght@1,400;1,500&family=Playfair+Display+SC:ital@1&display=swap"
     rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -73,15 +73,14 @@
         </div>
       </li>
       -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#">Market Indicators</a>
-        <ul class="dropdown-menu">
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#" id="Indicator">Market Indicators</a>
+        <!--<ul class="dropdown-menu">
           <li class="dropdown-item link"
-            style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);font-weight: 600;font-size: 16px;">Up</li>
+            style="border-bottom: 1px solid rgba(167, 38, 218, 0.39);font-weight: 600;font-size: 16px;" id="up">Up</li>
           <li class="dropdown-item link"
-            style="border-bottom: 1px solid rgba(51, 124, 207, 0.329);font-weight: 600;font-size: 16px;">Down</li>
-          <li class="dropdown-item link" style="font-weight: 600;font-size: 16px;">More Activites</li>
-        </ul>
+            style="font-weight: 600;font-size: 16px;" id="down">Down</li>
+        </ul>-->
       </li>
 
       <div class="signin">
@@ -116,9 +115,9 @@
       <h1>Good Analysis Means Guaranteed Profit</h1>
       <div class="search-input">
         <input type="text" class="search" placeholder="Search" id="txtSearch">
-        <div class="boxSearch">
+        <div class="boxSearch" id="resultsList">
         </div>
-        <span><i class="fa fa-search" aria-hidden="true" id="frmSearch"></i></span>
+        <span><i class="fa fa-search searchStock" aria-hidden="true" id="frmSearch"></i></span>
       </div>
     </div>
   </div>
@@ -129,42 +128,43 @@
           <div class="Vcont">
             <div class="layer Vlayer">
               <div class="Vote-input">
-                <input type="text" class="search" placeholder="Vote" id="txtSearch">
-                <div class="boxSearch">
-                </div>
+                <input type="text" class="search" placeholder="Vote" id="votesSearch">
+                <ul  id="suggestionsList"></ul>
                 <span><i class="fa fa-search voteSearch" aria-hidden="true" id="frmSearch"></i></span>
               </div>
             </div>
           </div>
         </form>
         <div class="info">
-        <div class="labels">
-          <label class="Vlabel">Stock Name</label>
-          <label class="Vlabel">Open</label>
-          <label class="Vlabel">Close</label>
-          <label class="Vlabel">Number of votes</label>
+          <div class="labels">
+            <label class="Vlabel">Stock Name</label>
+            <label class="Vlabel">Open</label>
+            <label class="Vlabel">Close</label>
+            <label class="Vlabel">Number of votes</label>
+          </div>
+          <div class="inputs">
+            <input class="Vinput" id="name" readonly>
+            <input class="Vinput" id="open" readonly>
+            <input class="Vinput" id="close" readonly>
+            <input class="Vinput" id="votes" readonly>
+            <div id="sendVote" style="display: flex;justify-content: center !important;">
+              <input class="Vinput" id="voting" placeholder="Vote">
+              <button id="voteButton">Vote</button>
+            </div>
+          </div>
         </div>
-        <div class="inputs">
-          <input class="Vinput" id="name" readonly>
-          <input class="Vinput" id="open" readonly>
-          <input class="Vinput" id="close" readonly>
-          <input class="Vinput" id="votes" readonly>
-          <div id="sendVote">
-          <input class="Vinput" id="voting" placeholder="Vote">
-          <button id="voteButton">Vote</button>
-        </div>
-        </div>
-      </div>
       </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="JS/Search.js"></script>
+  <script type="module" src="JS/StocksNames.js"></script>
   <script type="module" src="JS/StockName.js"></script>
   <script src="JS/main.js"></script>
   <script src="JS/SignIn.js"></script>
   <script src="JS/SignOut.js"></script>
   <script src="JS/Voting.js"></script>
+  <script src="JS/indicators.js"></script>
 </body>
 
 </html>

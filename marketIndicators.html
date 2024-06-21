@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logox.jpeg">
+    <title>Market Indicators</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 70px;
+        }
+        .chart {
+            width: 38%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin: 70px;color: rgb(67, 72, 134);">Up and Down Indicators</h1>
+    <div class="container">
+        <div id="bestCompanies" class="chart"></div>
+        <div id="worstCompanies" class="chart"></div>
+    </div>
+    <script src="JS/marketIndicators.js"></script>
+</body>
+</html>
