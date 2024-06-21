@@ -28,6 +28,7 @@ function preventSignOut(event) {
                 window.localStorage.removeItem("Marketindicators");
                 window.localStorage.removeItem("flag");
                 window.localStorage.setItem("flag","false")
+                location.reload();
                 updateUIOnLogout(); // Update UI after successful logout
                 return response.text();
             })
