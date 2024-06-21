@@ -57,6 +57,7 @@ function search(event, stockId) {
         .then(response => {
             if (response.status === 200) {
                 view.style.visibility = "visible";
+                txtSearch.value="";
                 return response.json();
             } else {
                 throw new Error('Failed to fetch data');

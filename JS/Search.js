@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 console.log('Prediction Data:', data);
                 localStorage.setItem('predictionData', JSON.stringify(data));
+                input.value="";
                 navigateToPredictionPage();
             })
             .catch(error => {
