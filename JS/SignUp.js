@@ -96,7 +96,7 @@ function prevent(event) {
             .then(response => {
                 console.log(response.status);
                 if (response.status === 202) {
-                    form.submit();
+                    window.location.href="Activation.html";
                 }
                 else {
                     alert('The E-mail is used before');

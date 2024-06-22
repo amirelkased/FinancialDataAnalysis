@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission Example</title>
+</head>
+<body>
+    <form action="http://localhost:3000/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/submit', (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    // Process the form data here (e.g., save it to a database)
+    console.log(`Received form submission: Name - ${name}, Email - ${email}`);
+    res.send(`Form submitted successfully!`);
+});
+
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
+
+</script>
+</html>
