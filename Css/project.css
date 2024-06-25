@@ -595,22 +595,6 @@ body {
 
 /******************************* VOTING *************************/
 
-/*.Vcont {
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    width: 45%;
-}*/
-/*.Vform {
-    display: flex;
-
-}*/
-
-/*.Voting {
-    width: 50%;
-    margin-left: 50px;
-}*/
 
 .Vlayer {
     height: 100%;
@@ -728,7 +712,24 @@ body {
     background-color: rgb(70, 114, 207);
 }
 
+@media (max-width: 600px) {
+    .Vlabel, .Vinput {
+        flex: 1 1 100%;
+    }
 
+    .Vote-input {
+        flex-direction: column;
+    }
+
+    .Vote-input span {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    #voting {
+        margin-bottom: 10px;
+    }
+}
 /************************************* Up Arrow ***************************************/
 .up {
     position: fixed;

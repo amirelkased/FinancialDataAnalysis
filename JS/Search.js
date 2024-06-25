@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         fetch(apiUrl, requestOptions)
             .then(response => {
+                input.value="";
                 console.log(response.status);
                 if (response.status === 200) {
                     return response.json();
@@ -113,12 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 console.log('Prediction Data:', data);
                 localStorage.setItem('predictionData', JSON.stringify(data));
-                input.value="";
                 navigateToPredictionPage();
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert("make sure from the name of stock and you signed in")
+                alert("make sure from the name of stock and you signed in");
             });
     };
 

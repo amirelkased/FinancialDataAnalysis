@@ -55,6 +55,7 @@ function search(event, stockId) {
 
     fetch(apiUrl, requestOptions)
         .then(response => {
+            txtSearch.value="";
             if (response.status === 200) {
                 view.style.visibility = "visible";
                 txtSearch.value="";

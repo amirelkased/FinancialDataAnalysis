@@ -8,20 +8,38 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         .container {
             display: flex;
-            justify-content: space-around;
-            margin: 70px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 130px;
         }
         .chart {
-            width: 38%;
+            flex: 1 1 45%; /* Allow charts to take up 45% of the container */
+            min-width: 200px; /* Ensure charts do not get too small */
+            margin: 10px;
+            height: 500px;
+        }
+        @media (max-width: 768px) {
+            .chart {
+                flex: 1 1 100%; /* Stack charts on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px; /* Adjust font size for smaller screens */
+                margin: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; margin: 70px;color: rgb(67, 72, 134);">Up and Down Indicators</h1>
+    <h1 style="text-align: center; margin: 20px; color: rgb(67, 72, 134);">Up and Down Indicators</h1>
     <div class="container">
         <div id="bestCompanies" class="chart"></div>
         <div id="worstCompanies" class="chart"></div>

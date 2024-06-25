@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const bestCompanyRanks = bestCompaniesData.map(entry => entry.rank);
             const worstCompanyNames = worstCompaniesData.map(entry => entry.name);
             const worstCompanyRanks = worstCompaniesData.map(entry => entry.rank);
-            
 
             // Data for the best companies chart
             const bestCompaniesChart = {
@@ -54,20 +53,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 title: {
                     text: 'Up Indicators',
                     font: {
-                        size: 20, // Set title font size to 15
-                        color: 'rgb(112, 94, 128)' // Set title font color
+                        size: 20,
+                        color: 'rgb(112, 94, 128)'
                     }
                 },
                 xaxis: {
                     title: {
                         text: 'Company',
-                        standoff: 20 // Add space between tick labels and axis title
+                        standoff: 20
                     },
-                    tickangle: -25, // Rotate the text to be diagonal
+                    tickangle: -25,
                     tickfont: {
                         size: 13,
                     },
-                    tickpadding: 5 ,// Add padding to the tick labels
+                    tickpadding: 5,
                     color: 'rgb(112, 48, 59)'
                 },
                 yaxis: {
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 margin: {
                     l: 50,
                     r: 50,
-                    b: 150, // Increase bottom margin to accommodate diagonal labels
+                    b: 150,
                     t: 50,
                     pad: 10
                 }
@@ -88,30 +87,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 title: {
                     text: 'Down Indicators',
                     font: {
-                        size: 20, // Set title font size to 15
-                        color: 'rgb(85, 106, 131)' // Set title font color
+                        size: 20,
+                        color: 'rgb(85, 106, 131)'
                     }
                 },
                 xaxis: {
                     title: {
                         text: 'Company',
-                        standoff: 20 // Add space between tick labels and axis title
+                        standoff: 20
                     },
-                    tickangle: -25, // Rotate the text to be diagonal
+                    tickangle: -25,
                     tickfont: {
                         size: 13,
                     },
-                    tickpadding: 5 ,// Add padding to the tick labels
+                    tickpadding: 5,
                     color: 'rgb(99, 64, 85)'
                 },
                 yaxis: {
                     title: 'Rank',
-                    color: 'rgb(99, 64, 85)' // Set title font color
+                    color: 'rgb(99, 64, 85)'
                 },
                 margin: {
                     l: 50,
                     r: 50,
-                    b: 150, // Increase bottom margin to accommodate diagonal labels
+                    b: 150,
                     t: 50,
                     pad: 10
                 }

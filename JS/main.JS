@@ -48,6 +48,7 @@ up.onclick = function () {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     voting.style.display = "none";
+    location.reload();
 }
 function select() {
     for (let i = 0; i < list.length; i++) {
