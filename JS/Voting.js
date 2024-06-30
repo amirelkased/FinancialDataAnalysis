@@ -240,5 +240,32 @@ const selectSuggestion = (element) => {
     }
 };
 
+const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const selectUserData = txtSearch.value.trim().toUpperCase();
+        if (!selectUserData) {
+            console.error("Search input is empty or undefined.");
+            return;
+        }
+
+        for (const [key, value] of Object.entries(stocks)) {
+            if (value === selectUserData) {
+                stockId = key;
+                break;
+            }
+        }
+
+        if (stockId === null) {
+            alert("No matching stock ID found.");
+            return;
+        }
+
+        searchbox.classList.remove("active"); // Hide the searchbox
+        search(e, stockId);
+    }
+};
+
 txtSearch.addEventListener('input', handleInput);
+txtSearch.addEventListener('keypress', handleKeyPress);
 searchbox.addEventListener('click', handleSuggestionClick);

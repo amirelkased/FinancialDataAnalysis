@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         fetch(apiUrl, requestOptions)
             .then(response => {
-                input.value="";
+                input.value = "";
                 console.log(response.status);
                 if (response.status === 200) {
                     return response.json();
@@ -125,9 +125,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const navigateToPredictionPage = () => {
         window.location.href = "prediction.html"; // Replace with the actual new page URL
     };
+    const handleEnterKeyPress = (e) => {
+        if (e.key === "Enter") {
+            const selectUserData = input.value;
+            let stockId = null;
+            for (const [key, value] of Object.entries(stocks)) {
+                if (value.toLowerCase() === selectUserData.toLowerCase()) {
+                    stockId = key;
+                    break;
+                }
+            }
+            if (stockId !== null) {
+                const noOfDay = 15; // You can change this value as needed
+                const requestBody = {
+                    stockId: parseInt(stockId),
+                    noOfDay: noOfDay
+                };
+                sendStockPredictionRequest(requestBody);
+                wrapper.classList.remove("active");
+            }
+        }
+    };
+
 
     input.addEventListener("keyup", debounce(handleInput, 300));
     suggestBox.addEventListener("click", handleSuggestionClick);
+    input.addEventListener("keypress", handleEnterKeyPress);
 
     // Add event listener to searchStock element to open a new page if clicked
     searchStock.addEventListener("click", function () {
